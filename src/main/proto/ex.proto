@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+message CalculateRequest{
+  double input = 1;
+}
+
+message CalculateResponse{
+  double output = 1;
+}
+
+
+
+service CalculateService{
+  rpc Sqr(CalculateRequest) returns (CalculateResponse) {};
+
+  rpc Std(stream CalculateRequest) returns (CalculateResponse) {};
+
+  rpc Multipliers(CalculateRequest) returns (stream CalculateResponse) {};
+
+  rpc Max(stream CalculateRequest) returns (stream CalculateResponse) {};
+}
